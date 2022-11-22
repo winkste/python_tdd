@@ -31,4 +31,10 @@ def calculate_int_from_string(str_arg):
     """
     if str_arg == "":
         return 0
-    return int(str_arg)
+    str_list = str_arg.split(",")
+    if len(str_list) > 2:
+        raise ValueError
+    val = 0
+    for i in str_list:
+        val = val + int(i)
+    return val

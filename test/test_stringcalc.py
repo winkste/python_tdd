@@ -24,6 +24,7 @@ __maintainer__ = "developer"
 __status__ = "Production"
 __version__ = "0.0.1"
 
+import sys
 import pytest
 from src.string_calc import calculate_int_from_string
 
@@ -58,10 +59,56 @@ def test_given_a_not_valid_string_calc_int_from_string_will_throw_exeption():
     with pytest.raises(ValueError):
         assert calculate_int_from_string("1.0")
 
-def test_given_less_than_two_numbers_calculate_int_from_string_will_throw_exception():
+def test_given_more_than_two_numbers_calculate_int_from_string_will_throw_exception():
     """
         This function will test that not more than two numbers are passed.
     """
     with pytest.raises(ValueError):
         assert calculate_int_from_string("1,2,3")
-    
+        assert calculate_int_from_string("1,2,3,4")
+
+def test_given_different_separator_calculate_int_from_string_will_throw_exception():
+    """
+        This function will test several separators for the numbers
+    """
+    with pytest.raises(ValueError):
+        assert calculate_int_from_string("1;")
+        assert calculate_int_from_string("1;2")
+        assert calculate_int_from_string("1?2")
+
+def test_given_one_and_two_with_spaces_calculate_int_from_string_will_return_three():
+    """
+        This function will test that given "1,2" will return a 3.
+    """
+    val = calculate_int_from_string("1,2")
+    assert val == 3
+    val = calculate_int_from_string(" 1, 2")
+    assert val == 3
+    val = calculate_int_from_string("   1,   2")
+    assert val == 3
+
+def test_given_different_numbers_calculate_int_from_string_will_correct_value():
+    """
+        This function will test several numbers in the int space.
+    """
+    val = calculate_int_from_string("15,15")
+    assert val == 30
+    val = calculate_int_from_string("100,200")
+    assert val == 300
+    val = calculate_int_from_string("1001,2002")
+    assert val == 3003
+    val = calculate_int_from_string(f"{sys.maxsize}, {sys.maxsize}")
+    assert val == (sys.maxsize + sys.maxsize)
+
+def test_given_different__neg_numbers_calculate_int_from_string_will_correct_value():
+    """
+        This function will test several negative numbers in the int space.
+    """
+    val = calculate_int_from_string("15, -15")
+    assert val == 0
+    val = calculate_int_from_string("100, -200")
+    assert val == -100
+    val = calculate_int_from_string("-1001, 2002")
+    assert val == 1001
+    val = calculate_int_from_string(f"{sys.maxsize}, -{sys.maxsize}")
+    assert val == (sys.maxsize - sys.maxsize)
