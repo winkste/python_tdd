@@ -35,6 +35,13 @@ def test_given_an_empty_string_calc_int_from_string_will_return_zero():
     val = calculate_int_from_string("")
     assert val == 0
 
+def test_given_an_int_calc_int_from_string_will_raise_value_error():
+    """
+        This function will test for integer parameter rather string.
+    """
+    with pytest.raises(TypeError):
+        calculate_int_from_string(1)
+
 def test_given_a_one_calc_int_from_string_will_return_zero():
     """
         This function will test if paramter = 0 will return 0
@@ -55,7 +62,7 @@ def test_given_a_not_valid_string_calc_int_from_string_will_throw_exeption():
     """
     with pytest.raises(ValueError):
         assert calculate_int_from_string("1.011")
-    
+
     with pytest.raises(ValueError):
         assert calculate_int_from_string("1.0")
 

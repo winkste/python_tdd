@@ -36,16 +36,16 @@ def calc(val):
     """This function does the calculation of the fizzBuzz.
 
     """
-    if isValue_aFizz(val) and isValue_aBuzz(val):
+    if is_value_a_fizz(val) and is_value_a_buzz(val):
         return "FizzBuzz"
-    elif isValue_aFizz(val):
+    elif is_value_a_fizz(val):
         return "Fizz"
-    elif isValue_aBuzz(val):
+    elif is_value_a_buzz(val):
         return "Buzz"
 
     return f"{val}"
 
-def isValue_aFizz(val):
+def is_value_a_fizz(val):
     """Checks if val is a multiple of 3.
 
     """
@@ -53,7 +53,7 @@ def isValue_aFizz(val):
         return True
     return False
 
-def isValue_aBuzz(val):
+def is_value_a_buzz(val):
     """Checks if the val is a multiple of 5.
 
     """

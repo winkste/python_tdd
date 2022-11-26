@@ -30,7 +30,7 @@ from src.fizzbuzz import calculate_fizzbuzz
 def test_given_input_number_is_zero_calculating_fizzbuzz_will_return_zero():
     """
         This function tests that calc FizzBuzz returns zero if given
-        input number is zero.  
+        input number is zero.
     """
     val = calculate_fizzbuzz(0)
     assert val == "0"
