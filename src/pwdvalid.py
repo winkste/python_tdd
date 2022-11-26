@@ -48,27 +48,64 @@ def validate_pwd(pwd_str:str):
         least one special character”
 
     """
-    err_str:str     = ""
-
+    err_str:str = ""
 
     if not isinstance(pwd_str, str):
         raise TypeError
+    err_str = validate_string(pwd_str)
+    return len(err_str) == 0, err_str
 
-    if len(pwd_str) < 8:
-        err_str += " Password must be at least 8 characters"
+
+def validate_string(str_val:str):
+    """
+        This function is executing all string tests.
+    """
+    err_str:str = ""
+
+    err_str += is_string_long_enough(str_val)
+    err_str += is_string_including_two_digits(str_val)
+    err_str += is_string_including_capital_letters(str_val)
+    err_str += is_string_including_special_chars(str_val)
+    return err_str
+
+def is_string_long_enough(str_val:str):
+    """
+        This function checks the length of string and in error case, returns
+        an error message.
+    """
+    if len(str_val) < 8:
+        return " Password must be at least 8 characters"
+    return ""
+
+def is_string_including_two_digits(str_val:str):
+    """
+        This function checks that the string include two digits
+    """
 
     # using regex to check if two digits are in the password
-    if len(re.sub('[^\\d]' , '', pwd_str)) < 2:
-        err_str += " The password must contain at least 2 numbers"
+    if len(re.sub('[^\\d]' , '', str_val)) < 2:
+        return " The password must contain at least 2 numbers"
+    return ""
+
+
+def is_string_including_capital_letters(str_val:str):
+    """
+        This function checks that the string contain capital letters
+    """
 
     # Using regex to check for any element to be uppercase
-    if not bool(re.match(r'\w*[A-Z]\w*', pwd_str)):
-        err_str += " Password must contain at least one capital letter"
+    if not bool(re.match(r'\w*[A-Z]\w*', str_val)):
+        return " Password must contain at least one capital letter"
+    return ""
+
+
+def is_string_including_special_chars(str_val:str):
+    """
+        This function checks the string on special characters
+    """
 
     # Using regex to check for any special character in string
     regex = re.compile('[@_!#$%^&*()<>?/\\|}{~:]')
-    if regex.search(pwd_str) is None:
-        err_str += " Password must contain at least one special character"
-
-
-    return len(err_str) == 0, err_str
+    if regex.search(str_val) is None:
+        return " Password must contain at least one special character"
+    return ""
