@@ -63,7 +63,7 @@ def test_empty_price_list_get_total_returns_zero(clean_totals):
     
     assert get_total() == "$0.00"
 
-def test_given_wrong_barcodes_get_totals_returns_zero():
+def test_given_wrong_barcodes_get_totals_returns_zero(clean_totals):
     """This test case checks that the totals calculation is
         returning "$0.00" if wrong barcodes are given
     """
@@ -72,21 +72,15 @@ def test_given_wrong_barcodes_get_totals_returns_zero():
     proc_barcode(121210)
     assert get_total() == "$0.00"
 
-def test_given_right_barcodes_get_totals_return_corr_val():
+def test_given_right_barcodes_get_totals_return_corr_val(prep_25_dollars):
     """This test case checks that all known barcodes given
         generate the right output
     """
-    proc_barcode(12345)
-    proc_barcode(23456)
-    proc_barcode(45456)
     assert get_total() == "$25.00"
 
-def test_given_barcodes_get_totals_reset_the_totals():
+def test_given_barcodes_get_totals_reset_the_totals(prep_25_dollars):
     """This test case checks that after reading the totals
         the total price is set to "$0.00"
     """
-    proc_barcode(12345)
-    proc_barcode(23456)
-    proc_barcode(45456)
     assert get_total() == "$25.00"
     assert get_total() == "$0.00"
