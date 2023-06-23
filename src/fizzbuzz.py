@@ -49,7 +49,7 @@ def is_value_a_fizz(val):
     """Checks if val is a multiple of 3.
 
     """
-    if val % 3 is 0 and val is not 0:
+    if val % 3 == 0 and val != 0:
         return True
     return False
 
@@ -57,6 +57,6 @@ def is_value_a_buzz(val):
     """Checks if the val is a multiple of 5.
 
     """
-    if val % 5 is 0 and val is not 0:
+    if val % 5 == 0 and val != 0:
         return True
     return False
