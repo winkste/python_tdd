@@ -12,7 +12,7 @@ Constraints
 
 1. Start with a class with the following structure
 
-class Account 
+class Account
 {
   public void deposit(int amount)
   public void withdraw(int amount)
@@ -65,6 +65,7 @@ __version__ = "0.0.1"
 
 ################################################################################
 # Imports
+from datetime import date
 
 ################################################################################
 # Variables
@@ -82,7 +83,7 @@ class Account:
         """
         self.balance:float = 0.00
         self.bal_cheet:list = ["DATE|AMOUNT|BALANCE"]
-        self.bal_cheet.append(f"DATE|-|{self.balance}")
+        self._append_balance_sheet(0)
 
     def deposit(self, amount:int)->None:
         """This function adds amount to account
@@ -93,10 +94,23 @@ class Account:
         self._check_amount_input(amount)
 
         self.balance += amount
-        self.bal_cheet.append(f"DATE|{amount:.2f}|{self.balance:.2f}")
+        self._append_balance_sheet(amount)
 
-        return None
-    
+    def _append_balance_sheet(self, amount:int)->None:
+        """This function add an entry to the balance sheet
+
+        Args:
+            amount (int): the amount that have been deposit or withdrawn
+        """
+        if amount != 0:
+            amount_str = f"{amount:.2f}"
+        else:
+            amount_str = "-"
+
+        # dd/mm/YY
+        today = date.today().strftime("%d/%m/%Y")
+        self.bal_cheet.append(f"{today}|{amount_str}|{self.balance:.2f}")
+
     def _check_amount_input(self, amount:int)->None:
         """_summary_
 
@@ -114,7 +128,7 @@ class Account:
         """
         for line in self.bal_cheet:
             print(line)
-    
+
     def withdraw(self, amount:int)->int:
         """This function withdraws the amount of money if balance
             is sufficient.
@@ -127,6 +141,12 @@ class Account:
         """
         self._check_amount_input(amount)
 
+        if self.balance >= amount:
+            self.balance -= amount
+            self._append_balance_sheet(-amount)
+
+            return amount
+
         return 0
 
 
@@ -136,7 +156,6 @@ if __name__ == "__main__":
     # execute only if run as a script
     print('--- any module script ---')
     bank = Account()
-    bank.deposit(300)
-    bank.deposit(300)
-    bank.deposit(300)
+    bank.deposit(100)
+    bank.withdraw(100)
     bank.print_statement()
