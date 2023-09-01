@@ -149,13 +149,12 @@ class Account:
 
         return 0
 
-
 ################################################################################
 # Scripts
-if __name__ == "__main__":
-    # execute only if run as a script
-    print('--- any module script ---')
-    bank = Account()
-    bank.deposit(100)
-    bank.withdraw(100)
-    bank.print_statement()
+#if __name__ == "__main__":
+#    # execute only if run as a script
+#    print('--- any module script ---')
+#    bank = Account()
+#    bank.deposit(100)
+#    bank.withdraw(100)
+#    bank.print_statement()

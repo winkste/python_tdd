@@ -114,5 +114,5 @@ def print_cities(city_list):
 
 
 
-if __name__ == "__main__":
-    print(search_city("*"))
+#if __name__ == "__main__":
+#    print(search_city("*"))

@@ -109,8 +109,8 @@ def get_total()->str:
 # Classes
 ################################################################################
 # Scripts
-if __name__ == "__main__":
-    # execute only if run as a script
-    print('--- any module script ---')
-    val = proc_barcode(12345)
-    print(val)
+#if __name__ == "__main__":
+#    # execute only if run as a script
+#    print('--- any module script ---')
+#    val = proc_barcode(12345)
+#    print(val)

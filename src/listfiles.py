@@ -65,8 +65,8 @@ def list_files(root_dir:str):
 # Classes
 ################################################################################
 # Scripts
-if __name__ == "__main__":
-    # execute only if run as a script
-    print('--- any module script ---')
+#if __name__ == "__main__":
+#    # execute only if run as a script
+#    print('--- any module script ---')
 
 
