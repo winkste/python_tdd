@@ -111,6 +111,7 @@ env.bak/
 venv.bak/
 python_tdd_env/
 pytest_env/
+tdd_env/
 
 # Spyder project settings
 .spyderproject
