@@ -1,0 +1,10 @@
+2023-09-21 05:55:53,521 - create_logs.py/<module>(54) - INFO - This is an info message
+2023-09-21 05:55:53,881 - create_logs.py/<module>(55) - INFO - This is an info message
+2023-09-21 05:55:54,179 - create_logs.py/<module>(56) - INFO - This is an info message
+2023-09-21 05:55:54,584 - create_logs.py/<module>(57) - INFO - This is an info message
+2023-09-21 05:55:55,071 - create_logs.py/<module>(58) - INFO - This is an info message
+2023-09-21 05:58:13,884 - create_logs.py/<module>(54) - INFO - This is an info message
+2023-09-21 05:58:13,885 - create_logs.py/<module>(55) - INFO - This is an info message
+2023-09-21 05:58:13,885 - create_logs.py/<module>(56) - INFO - This is an info message
+2023-09-21 05:58:13,885 - create_logs.py/<module>(57) - INFO - This is an info message
+2023-09-21 05:58:13,885 - create_logs.py/<module>(58) - INFO - This is an info message
