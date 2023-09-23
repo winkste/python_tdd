@@ -50,7 +50,7 @@ def test_given_wrong_types_args_caesar_will_return_type_exep(in1, in2, expected)
 def test_given_empty_string_caesar_will_return_empty_string():
     """Test Case to check that the input string of none returns a none
     """
-    assert caesar_cipher("", 4) is ""
+    assert caesar_cipher("", 4) == ""
 
 @pytest.mark.parametrize("in1, in2, expected", [("This is Text", 0, "This is Text"), ("another", 0, "another"), ("abcdefghijklmnopqrstuvwxyz", 0, "abcdefghijklmnopqrstuvwxyz")])
 def test_given_zero_for_shifts_will_return_equal_text(in1, in2, expected):
