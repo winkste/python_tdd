@@ -25,7 +25,7 @@ __status__ = "Production"
 __version__ = "0.0.1"
 
 import pytest
-from src.fizzbuzz import calculate_fizzbuzz
+from src.fizzbuzz.fizzbuzz import calculate_fizzbuzz
 
 def test_given_input_number_is_zero_calculating_fizzbuzz_will_return_zero():
     """
